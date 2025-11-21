@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- RUNNING CHROME ANDROID > 89 (WEB_NFC API) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <title>Gigaset</title>
+</head>
+
+<body id="gigaset">
+    <div id="container" data-zombitron='{"name": "sequencer"}'>
+        <div id="sequencer-container" data-zombitron='{"type": "container"}'></div>
+
+        <div id="steps-lights" data-zombitron='{"type": "container"}'>
+            <div id="steplight-4" class="steplight"></div>
+            <div id="steplight-3" class="steplight"></div>
+            <div id="steplight-2" class="steplight"></div>
+            <div id="steplight-1" class="steplight"></div>
+            <!-- VOYANTS -->
+        </div>
+
+        <div id="bpmviz" data-zombitron='{"type": "container"}'>
+            <!-- SEQUENCER LOOP START STOP CONTROL -->
+            <div id="instrus-lights">
+                <div id="instrulight-1"></div>
+                <div id="instrulight-2"></div>
+                <div id="instrulight-3"></div>
+                <div id="instrulight-4"></div>
+            </div>
+            <!-- <div id="startstop" data-zombitron='{"type": "container"}'> -->
+            <div id='startstop' data-zombitron='{"type": "button", "toggle": true, "value": "/sequencerloop/onoff"}'>
+                ▶
+            </div>
+            <!-- </div> -->
+            <script type="text/javascript">
+                window.addEventListener('state', function (e) {
+                    window.zombitron.zombiterface.find("startstop").setValueIfChanged(e.detail.machine.sequencer.started);
+                });
+            </script>
+            <!-- ---------------------------------------- -->
+
+            <div id="bpms">
+                <p></p>
+            </div>
+            <canvas id="tictac" width="120" height="100"></canvas>
+            <script type="text/javascript" src="/assets/js/ui/metronome.js"></script>
+        </div>
+
+
+        <!-- SLIDER FOR BPM CONTROL -->
+        <div id='sliderbpm' data-zombitron='{
+                "type": "slider",
+                "orientation" : "horizontal",
+                "reversed": false,
+                "value": "/bpmcontrol",
+                "cursor" : true}'>
+        </div>
+        <script type="text/javascript">
+            window.addEventListener('state', function (e) {
+                document.querySelector('#bpms p').innerHTML = e.detail.machine.bpm.value;
+                window.zombitron.zombiterface.find("sliderbpm").setValueIfChanged(e.detail.machine.bpm.slidervalue)
+            });
+        </script>
+        <!-- ------------------- -->
+
+
+
+        <!-- NFC INTERFACE -->
+        <script type="text/javascript">
+
+            window.addEventListener('zombiterfaceready', function (e) {
+                const ndef = new NDEFReader();
+                let writing = false;
+                ndef.scan().then(() => {
+                    ndef.onreadingerror = () => {
+                        alert("Cannot read data from the NFC tag. Try another one?");
+                    };
+                    let id = null;
+                    ndef.onreading = (event) => {
+                        for (const record of event.message.records) {
+                            if (record.recordType == "text") {
+                                const decoder = new TextDecoder();
+                                let obj = JSON.parse(decoder.decode(record.data));
+                                if (obj.hasOwnProperty("id")) {
+                                    // alert(obj.id)
+                                    id = obj.id;
+                                }
+                            }
+                        }
+                        if (window.zombitron.zombiterface.ready && !writing) {
+                            if (id) {
+                                try {
+                                    let message = { 'data': { 'load': id } };
+                                    window.zombitron.zombiterface.send(message);
+                                } catch (ee) {
+
+                                }
+                            }
+                        }
+                    };
+                }).catch(error => {
+                    alert(`Error! Scan failed to start: ${error}.`);
+                });
+
+                async function writeSetup(data, { timeout } = {}) {
+                    return new Promise((resolve, reject) => {
+                        writing = true;
+                        let id = data;
+                        const controller = new AbortController();
+                        controller.signal.onabort = () => {
+                            let message = { 'data': { 'writingresult': JSON.stringify({ "success": false, "id": id, "detail": "timeout" }) } };
+                            window.zombitron.zombiterface.send(message);
+                            // alert(message)
+                            writing = false;
+                            resolve()
+                        }
+                        setTimeout(() => controller.abort(), timeout);
+
+                        // alert(id)
+                        ndef.addEventListener(
+                            "reading",
+                            (event) => {
+                                // alert(event.message)
+                                if (event.message.id) {
+                                    id = event.message;
+                                    let message = { 'data': { 'writingresult': JSON.stringify({ "success": true, "id": id, "detail": "alreadywritten" }) } };
+                                    window.zombitron.zombiterface.send(message);
+                                    // alert(message)
+                                    writing = false;
+                                    resolve()
+
+                                } else {
+                                    ndef.write(JSON.stringify({ 'id': id }), { signal: controller.signal }).then(res => {
+                                        let message = { 'data': { 'writingresult': JSON.stringify({ "success": true, "id": id, "detail": "writing success" }) } };
+                                        window.zombitron.zombiterface.send(message);
+                                        // alert(message)
+                                        writing = false;
+                                        resolve()
+
+                                    }).catch(fail => {
+                                        let message = { 'data': { 'writingresult': JSON.stringify({ "success": false, "id": id, "detail": "failure while writting" }) } };
+                                        window.zombitron.zombiterface.send(message);
+                                        // alert(JSON.stringify(fail))
+                                        writing = false;
+                                        resolve()
+
+                                    }
+                                    );
+                                }
+                            },
+                            { once: true },
+                        );
+                    })
+                }
+                window.addEventListener('writecard', (e) => {
+                    // alert(e.detail)
+                    writeSetup(e.detail, { timeout: 5000 })
+                })
+            })
+
+
+        </script>
+
+        <script type="text/javascript" src="/assets/js/ui/sequencer.js"></script>
+        <script type="text/javascript" src="/zombitron/client/zombiterface.js"></script>
+
+    </div>
+</body>
+
+</html>

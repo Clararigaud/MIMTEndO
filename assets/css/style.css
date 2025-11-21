@@ -1,0 +1,374 @@
+/* colors: */
+body {
+    --instu-1: #707aff;
+    --instu-2: #e5b8b3;
+    --instu-3: #e3e05f;
+    --instu-4: #00ff83;
+    --cool-red: #ff4f33;
+    --border-color: #909090;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--border-color);
+}
+
+.button {
+    border-color: var(--border-color);
+    border-radius: 50px;
+    position: relative;
+}
+
+.slider.horizontal {
+    border: none;
+    height: 40px;
+}
+
+.slider.vertical {
+    border: none;
+    width: 40px;
+}
+
+.slider.horizontal .progressbar {
+    background-color: var(--border-color);
+    top: 50%;
+    height: 1px;
+}
+
+.progress {
+    height: 100%;
+    position: absolute;
+}
+
+.slider.vertical .progressbar {
+    background-color: var(--border-color);
+    left: 50%;
+    width: 1px;
+}
+
+.slider.horizontal.slidereffect {
+    height: 14vh;
+    margin-bottom: 0vh;
+}
+
+.slidereffect .cursor,
+.slidermaster .cursor {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 10vh;
+}
+
+#container[value="0"] .slidereffect .progress,
+#button1>.on,
+#container[value="0"] .slidereffect>.cursor {
+    background-color: var(--instu-1);
+}
+
+#container[value="1"] .slidereffect .progress,
+#button2>.on,
+#container[value="1"] .slidereffect>.cursor {
+    background-color: var(--instu-2);
+}
+
+#container[value="2"] .slidereffect .progress,
+#button3>.on,
+#container[value="2"] .slidereffect>.cursor {
+    background-color: var(--instu-3);
+}
+
+#container[value="3"] .slidereffect .progress,
+#button4>.on,
+#container[value="3"] .slidereffect>.cursor {
+    background-color: var(--instu-4);
+}
+
+.slider {
+    overflow: visible;
+}
+
+#buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3.2vh;
+    height: 10vh;
+    width: 100%;
+}
+
+#selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+#selector .button,
+#savebutton {
+    width: 14vh;
+    height: 14vh;
+    border-radius: 14vh;
+}
+
+#savebutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: red;
+}
+
+#savebutton .on {
+    z-index: -1;
+}
+
+.slider.horizontal {
+    position: relative;
+    width: 100%;
+}
+
+#bpms,
+#startstop {
+    margin: 0;
+    padding: 0;
+}
+
+#instrus-lights {
+    width: 4vh;
+    margin-left: 2.5vh;
+    margin-top: 1.5vh;
+    height: 10vh;
+    /* align-self: flex-start; */
+}
+
+#tictac {
+    margin-left: 2.5vh;
+    height: 100%;
+    width: 35%;
+}
+
+#startstop {
+    margin-left: 1.5vh;
+    margin-top: 3vh;
+    width: 14vh;
+    height: 14vh;
+    border-radius: 14vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: red;
+    /* z-index: 4; */
+}
+
+#startstop .on {
+    z-index: -1;
+}
+
+#steps-lights {
+    height: 10vh;
+    display: flex;
+    margin-top: 0vh;
+    margin-left: 1vh;
+    width: 54vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.steplight {
+    height: 100%;
+    width: 14vh;
+}
+
+.steplight.active {
+    background-color: white;
+}
+
+#instrulight-1,
+#instrulight-2,
+#instrulight-3,
+#instrulight-4 {
+    height: 4.3vh;
+    width: 4vh;
+}
+
+#instrulight-1.current {
+    background-color: var(--instu-1);
+}
+
+#instrulight-2.current {
+    background-color: var(--instu-2);
+}
+
+#instrulight-3.current {
+    background-color: var(--instu-3);
+}
+
+#instrulight-4.current {
+    background-color: var(--instu-4);
+}
+
+#bpmviz {
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: top;
+    height: 17vh;
+    margin-top: 1.5vh;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#bpms {
+    margin-left: 1vh;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 14%;
+    height: 100%;
+}
+
+#bpms p {
+    margin-top: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bolder;
+    transform: rotate(90deg);
+}
+
+#sliderbpm {
+    height: 10vh;
+    width: 92%;
+    margin-top: 3.2vh;
+    margin-left: 2.5vh;
+}
+
+#sliderbpm>.cursor {
+    background-color: var(--cool-red);
+    border: 2px solid white;
+    width: 7vh;
+    height: 7vh;
+    border-radius: 7vh;
+}
+
+#sliderbpm .progress {
+    background-color: white;
+}
+
+/* IPHONE */
+
+#iphone #container {
+    width: 100%;
+    height: 100%;
+}
+
+#master-container {
+    height: 14vh;
+    display: flex;
+}
+
+#slidermaster.slider {
+    width: 75%;
+    height: 14vh;
+    margin-left: 3.2vh
+}
+
+#gigaset #container {
+    width: 100%;
+    height: 100%;
+}
+
+/*  SEQUENCER STYLE */
+#sequencer-container {
+    display: grid;
+    grid-template: "a b c d";
+    margin-top: 0vh;
+    margin-left: 0vh;
+    justify-content: left;
+    border: 1px solid white;
+    width: fit-content;
+}
+
+#sequencer-container .button {
+    border-radius: 0px;
+    border: none;
+    padding: 2px;
+}
+
+#sequencer-container .button.current .sub-button {
+    background-blend-mode: normal;
+}
+
+#sequencer-container .button.row-0,
+#sequencer-container .button.row-1,
+#sequencer-container .button.row-2 {
+    border-bottom: 1px solid var(--border-color)
+}
+
+#sequencer-container .button.col-0,
+#sequencer-container .button.col-1,
+#sequencer-container .button.col-2 {
+    border-right: 1px solid var(--border-color)
+}
+
+#sequencer-container .button {
+    width: 13vh;
+    height: 13vh;
+}
+
+#sequencer-container .button .on {
+    background-color: none;
+    opacity: 0;
+}
+
+.sub-button {
+    border-radius: 4vh;
+    border: 2px solid;
+    height: 4vh;
+    opacity: 0;
+    position: absolute;
+    width: 4vh;
+    z-index: -2;
+}
+
+.button.current .sub-button.instrument-0 {
+    background-color: var(--instu-1);
+}
+
+.button.current .sub-button.instrument-1 {
+    background-color: var(--instu-2);
+}
+
+.button.current .sub-button.instrument-2 {
+    background-color: var(--instu-3);
+}
+
+.button.current .sub-button.instrument-3 {
+    background-color: var(--instu-4);
+}
+
+.sub-button.instrument-0 {
+    border-color: var(--instu-1);
+    right: 10px;
+    top: 10px;
+}
+
+.sub-button.instrument-1 {
+    border-color: var(--instu-2);
+    bottom: 10px;
+    right: 10px;
+}
+
+.sub-button.instrument-2 {
+    border-color: var(--instu-3);
+    left: 10px;
+    top: 10px;
+}
+
+.sub-button.instrument-3 {
+    border-color: var(--instu-4);
+    bottom: 10px;
+    left: 10px;
+}
+
+.sub-button.activated {
+    opacity: 1;
+}

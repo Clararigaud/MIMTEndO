@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>Iphone</title>
+</head>
+
+<body id="iphone">
+    <div id="container" data-zombitron='{"name": "iphone"}'>
+
+        <div id="buttons-container" data-zombitron='{"type": "container"}'>
+
+            <script type="text/javascript">
+
+                window.addEventListener('state', function (e) {
+                    var selected = parseInt(e.detail.machine.sequencer.selected);
+                    document.getElementById('container').setAttribute('value', String(selected));
+                    var currentinstru = e.detail.machine.instruments.sequencer[selected];
+                    updateSlider(currentinstru, 0);
+                    updateSlider(currentinstru, 1);
+                    updateSlider(currentinstru, 2);
+                    updateSlider(currentinstru, 3);
+                });
+
+                function updateSlider(instru, n) {
+                    if (instru.controls.length > n) {
+                        var control = instru.controls[n]
+                        window.zombitron.zombiterface.find("slider" + String(n + 1)).setValueIfChanged(instru.effects[control[0]].slidervalue[control[1]])
+                    }
+                    else {
+                        window.zombitron.zombiterface.find("slider" + String(n + 1)).setValueIfChanged(0)
+                    }
+                }
+            </script>
+            <!-- ------------------ -->
+
+
+            <!-- INSTRUMENTS SELECTOR  -->
+            <div id="selector" data-zombitron='{
+            "type": "selector",
+            "value": "/instrumentselector"}'>
+                <div id='button1'></div>
+                <div id='button2'></div>
+                <div id='button3'></div>
+                <div id='button4'></div>
+            </div>
+
+            <script type="text/javascript">
+                var selected = 0;
+                var selector;
+                window.addEventListener('zombiterfaceready', function (e) {
+                    selector = window.zombitron.zombiterface.find("selector");
+                    selector.change = function () {
+                        selected = selector.value;
+                        document.getElementById('container').setAttribute('value', String(selected));
+                    }
+                });
+                window.addEventListener('state', function (e) {
+                    selector.setValueIfChanged(e.detail.machine.sequencer.selected)
+                });
+            </script>
+
+            <!--  ----------------  -->
+        </div>
+        <div id="slider-container" data-zombitron='{"type": "container"}'>
+            <!-- EFFECTS SLIDERS  -->
+            <div id='slider1' class="slidereffect" data-zombitron='{
+        "type": "slider",
+        "orientation" : "horizontal",
+        "reversed": true,
+        "value": "/effectscontrol/slider1",
+        "cursor" : true}'>
+            </div>
+
+            <div id='slider2' class="slidereffect" data-zombitron='{
+        "type": "slider",
+        "orientation" : "horizontal",
+        "reversed": true,
+        "value": "/effectscontrol/slider2",
+        "cursor" : true}'>
+            </div>
+
+            <div id='slider3' class="slidereffect" data-zombitron='{
+        "type": "slider",
+        "orientation" : "horizontal",
+        "reversed": true,
+        "value": "/effectscontrol/slider3",
+        "cursor" : true}'>
+            </div>
+
+            <div id='slider4' class="slidereffect" data-zombitron='{
+        "type": "slider",
+        "orientation" : "horizontal",
+        "reversed": true,
+        "value": "/effectscontrol/slider4",
+        "cursor" : true}'>
+            </div>
+
+        </div>
+        <div id="master-container" data-zombitron='{"type": "container"}'>
+            <div id='savebutton' data-zombitron='{"type": "button", "toggle": false, "value": "/save"}'>⬤</div>
+            <!-- MASTER SLIDER  -->
+            <div id='slidermaster' class= "slidereffect" data-zombitron='{
+                        "type": "slider",
+                        "orientation" : "horizontal",
+                        "reversed": true,
+                        "value": "/slidermaster",
+                        "cursor" : true}'>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/zombitron/client/zombiterface.js"></script>
+    <script type="module" src="/assets/js/app/main.js"></script>
+</body>
+
+</html>
