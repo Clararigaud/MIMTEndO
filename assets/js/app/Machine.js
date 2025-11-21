@@ -67,8 +67,8 @@ export default class Machine {
                     if(instru.hasOwnProperty("effects")){
                         const effects = instru.effects;
                         Object.keys(effects).forEach((effect)=>{
-                            Object.keys(effects[effect]).forEach((variable)=>{
-                                this.seqInstruments[i].effects.setParam(effect, variable, effects[effect][variable])
+                            Object.keys(effects[effect]["value"]).forEach((variable)=>{
+                                this.seqInstruments[i].effects.setParam(effect, variable, effects[effect]["value"][variable])
                             })
                         })
                     }

@@ -1,1 +1,2454 @@
-{"1":{"bpm":65,"sequencer":{"matrix":[[0,0,0,1],[1,1,0,0],[1,1,0,0],[0,0,1,0],[1,0,1,0],[0,1,0,0],[1,0,0,0],[0,1,0,1],[1,0,1,0],[1,0,0,1],[0,1,1,0],[0,1,0,1],[0,1,0,0],[0,0,1,1],[0,0,1,1],[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]},"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"feedback":0.92,"delayTime":0.0125},"filter":{"frequency":152.081},"distortion":{"wet":1}}},{"volume":0.5,"effects":{"feedback":{"feedback":1,"delayTime":0.0125},"filter":{"frequency":664.0169999999999},"reverb":{"wet":0.22}}},{"volume":0.5,"effects":{"feedback":{"feedback":0.94,"delayTime":0.02},"filter":{"frequency":32.096},"reverb":{"wet":0.11}}},{"volume":0.5,"effects":{"feedback":{"feedback":1,"delayTime":0.0175},"filter":{"frequency":552.031},"reverb":{"wet":0.33}}}],"monotron":{"volume":0.5,"effects":{"reverb":{"wet":0.2},"feedback":{"delayTime":0.2,"wet":0.2},"distortion":{"wet":0.5}}}}},"2":{"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.56,"delayTime":0.0125},"slidervalue":{"feedback":0.56,"delayTime":0.05}},"filter":{"value":{"frequency":576.028},"slidervalue":{"frequency":0.72}},"distortion":{"value":{"wet":0.49},"slidervalue":{"wet":0.49}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["distortion","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.02,"delayTime":0.2},"slidervalue":{"feedback":0.02,"delayTime":0.8}},"filter":{"value":{"frequency":648.019},"slidervalue":{"frequency":0.81}},"reverb":{"value":{"wet":0.92},"slidervalue":{"wet":0.92}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.77,"delayTime":0.0075},"slidervalue":{"feedback":0.77,"delayTime":0.03}},"filter":{"value":{"frequency":200},"slidervalue":{"frequency":0.24990623827978498}},"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.1,"delayTime":0.1},"slidervalue":{"feedback":0.1,"delayTime":0.4}},"filter":{"value":{"frequency":400},"slidervalue":{"frequency":0.4999374921865233}},"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]}],"monotron":{"volume":0.5,"effects":{"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}},"feedback":{"value":{"delayTime":0.2,"wet":0.2},"slidervalue":{"delayTime":0.8,"wet":0.2}},"distortion":{"value":{"wet":0.5},"slidervalue":{"wet":0.5}}},"controls":[]}},"sequencer":{"step":14,"matrix":[[0,1,0,0],[1,0,0,0],[0,0,0,0],[1,0,0,0],[1,1,0,0],[1,0,0,0],[1,0,0,0],[1,0,1,0],[0,1,0,0],[0,0,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,0,1,0],[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],"started":true,"selected":"2"}},"3":{"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.92,"delayTime":0.0125},"slidervalue":{"feedback":0.92,"delayTime":0.05}},"filter":{"value":{"frequency":152.081},"slidervalue":{"frequency":0.19}},"distortion":{"value":{"wet":1},"slidervalue":{"wet":1}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["distortion","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.96,"delayTime":0.0125},"slidervalue":{"feedback":0.96,"delayTime":0.05}},"filter":{"value":{"frequency":248.069},"slidervalue":{"frequency":0.31}},"reverb":{"value":{"wet":0.93},"slidervalue":{"wet":0.93}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.94,"delayTime":0.02},"slidervalue":{"feedback":0.94,"delayTime":0.08}},"filter":{"value":{"frequency":32.096},"slidervalue":{"frequency":0.039999999999999994}},"reverb":{"value":{"wet":0.11},"slidervalue":{"wet":0.11}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":1,"delayTime":0.0175},"slidervalue":{"feedback":1,"delayTime":0.07}},"filter":{"value":{"frequency":552.031},"slidervalue":{"frequency":0.69}},"reverb":{"value":{"wet":0.33},"slidervalue":{"wet":0.33}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]}],"monotron":{"volume":0.5,"effects":{"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}},"feedback":{"value":{"delayTime":0.2,"wet":0.2},"slidervalue":{"delayTime":0.8,"wet":0.2}},"distortion":{"value":{"wet":0.5},"slidervalue":{"wet":0.5}}},"controls":[]}},"sequencer":{"step":10,"matrix":[[1,1,0,0],[1,0,0,0],[0,0,0,0],[1,0,0,0],[1,0,1,0],[1,0,0,0],[1,0,0,0],[1,0,1,0],[0,1,0,0],[1,0,0,0],[1,0,0,0],[1,0,1,0],[0,0,0,0],[0,0,0,0],[0,0,1,0],[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],"started":true,"selected":"1"}},"4":{"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.48,"delayTime":0},"slidervalue":{"feedback":0.48,"delayTime":0}},"filter":{"value":{"frequency":152.081},"slidervalue":{"frequency":0.19}},"distortion":{"value":{"wet":1},"slidervalue":{"wet":1}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["distortion","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.35,"delayTime":0.0125},"slidervalue":{"feedback":0.35,"delayTime":0.05}},"filter":{"value":{"frequency":664.0169999999999},"slidervalue":{"frequency":0.83}},"reverb":{"value":{"wet":0.22},"slidervalue":{"wet":0.22}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.94,"delayTime":0.02},"slidervalue":{"feedback":0.94,"delayTime":0.08}},"filter":{"value":{"frequency":32.096},"slidervalue":{"frequency":0.039999999999999994}},"reverb":{"value":{"wet":0.11},"slidervalue":{"wet":0.11}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.28,"delayTime":0.0175},"slidervalue":{"feedback":0.28,"delayTime":0.07}},"filter":{"value":{"frequency":552.031},"slidervalue":{"frequency":0.69}},"reverb":{"value":{"wet":0.33},"slidervalue":{"wet":0.33}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]}],"monotron":{"volume":0.5,"effects":{"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}},"feedback":{"value":{"delayTime":0.2,"wet":0.2},"slidervalue":{"delayTime":0.8,"wet":0.2}},"distortion":{"value":{"wet":0.5},"slidervalue":{"wet":0.5}}},"controls":[]}},"sequencer":{"step":11,"matrix":[[0,1,0,0],[1,0,0,0],[0,0,0,0],[0,0,0,0],[1,1,0,0],[1,0,0,0],[0,0,0,0],[0,0,1,0],[0,1,0,0],[1,0,0,0],[0,0,0,0],[1,0,1,0],[1,0,0,0],[0,0,0,0],[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],"started":true,"selected":"1"}},"5":{"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.92,"delayTime":0.0125},"slidervalue":{"feedback":0.92,"delayTime":0.05}},"filter":{"value":{"frequency":424.047},"slidervalue":{"frequency":0.53}},"distortion":{"value":{"wet":1},"slidervalue":{"wet":1}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["distortion","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.12,"delayTime":0.0375},"slidervalue":{"feedback":0.12,"delayTime":0.15}},"filter":{"value":{"frequency":104.08699999999999},"slidervalue":{"frequency":0.13}},"reverb":{"value":{"wet":0.31},"slidervalue":{"wet":0.31}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.94,"delayTime":0.2125},"slidervalue":{"feedback":0.94,"delayTime":0.85}},"filter":{"value":{"frequency":464.042},"slidervalue":{"frequency":0.58}},"reverb":{"value":{"wet":0.11},"slidervalue":{"wet":0.11}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.45,"delayTime":0.1675},"slidervalue":{"feedback":0.45,"delayTime":0.67}},"filter":{"value":{"frequency":184.077},"slidervalue":{"frequency":0.23}},"reverb":{"value":{"wet":0.33},"slidervalue":{"wet":0.33}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]}],"monotron":{"volume":0.5,"effects":{"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}},"feedback":{"value":{"delayTime":0.2,"wet":0.2},"slidervalue":{"delayTime":0.8,"wet":0.2}},"distortion":{"value":{"wet":0.5},"slidervalue":{"wet":0.5}}},"controls":[]}},"sequencer":{"step":3,"matrix":[[1,1,0,0],[1,0,0,0],[0,0,0,0],[1,0,0,0],[1,0,1,0],[1,0,0,0],[1,0,0,0],[1,0,1,0],[0,1,0,0],[1,0,0,1],[1,0,0,0],[1,0,1,0],[0,0,0,1],[0,0,0,1],[0,0,1,0],[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],"started":true,"selected":"2"}},"6":{"instruments":{"sequencer":[{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.87,"delayTime":0.2225},"slidervalue":{"feedback":0.87,"delayTime":0.89}},"filter":{"value":{"frequency":760.005},"slidervalue":{"frequency":0.95}},"distortion":{"value":{"wet":0.91},"slidervalue":{"wet":0.91}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["distortion","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.1,"delayTime":0.1},"slidervalue":{"feedback":0.1,"delayTime":0.4}},"filter":{"value":{"frequency":400},"slidervalue":{"frequency":0.4999374921865233}},"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.2,"delayTime":0.3},"slidervalue":{"feedback":0.2,"delayTime":1.2}},"filter":{"value":{"frequency":200},"slidervalue":{"frequency":0.24990623827978498}},"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]},{"volume":0.5,"effects":{"feedback":{"value":{"feedback":0.1,"delayTime":0.1},"slidervalue":{"feedback":0.1,"delayTime":0.4}},"filter":{"value":{"frequency":400},"slidervalue":{"frequency":0.4999374921865233}},"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}}},"controls":[["feedback","feedback"],["feedback","delayTime"],["filter","frequency"],["reverb","wet"]]}],"monotron":{"volume":0.5,"effects":{"reverb":{"value":{"wet":0.2},"slidervalue":{"wet":0.2}},"feedback":{"value":{"delayTime":0.2,"wet":0.2},"slidervalue":{"delayTime":0.8,"wet":0.2}},"distortion":{"value":{"wet":0.5},"slidervalue":{"wet":0.5}}},"controls":[]}},"sequencer":{"step":1,"matrix":[[0,1,0,0],[1,0,0,0],[0,0,0,0],[1,0,0,0],[1,1,0,0],[1,0,0,0],[1,0,0,0],[1,0,1,0],[0,1,0,0],[0,0,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,0,1,0],[1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],"started":true,"selected":"0"}}}
+{
+    "1": {
+        "bpm": 65,
+        "sequencer": {
+            "matrix": [
+                [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    1,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    1
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ]
+        },
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.92,
+                                "delayTime": 0.0125
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 152.081
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 1
+                            }
+                        }
+                    }
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 1,
+                                "delayTime": 0.0125
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 664.0169999999999
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.22
+                            }
+                        }
+                    }
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.94,
+                                "delayTime": 0.02
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 32.096
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.11
+                            }
+                        }
+                    }
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 1,
+                                "delayTime": 0.0175
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 552.031
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.33
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "2": {
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.56,
+                                "delayTime": 0.0125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.56,
+                                "delayTime": 0.05
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 576.028
+                            },
+                            "slidervalue": {
+                                "frequency": 0.72
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 0.49
+                            },
+                            "slidervalue": {
+                                "wet": 0.49
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "distortion",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.02,
+                                "delayTime": 0.2
+                            },
+                            "slidervalue": {
+                                "feedback": 0.02,
+                                "delayTime": 0.8
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 648.019
+                            },
+                            "slidervalue": {
+                                "frequency": 0.81
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.92
+                            },
+                            "slidervalue": {
+                                "wet": 0.92
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.77,
+                                "delayTime": 0.0075
+                            },
+                            "slidervalue": {
+                                "feedback": 0.77,
+                                "delayTime": 0.03
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 200
+                            },
+                            "slidervalue": {
+                                "frequency": 0.24990623827978498
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.2
+                            },
+                            "slidervalue": {
+                                "wet": 0.2
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.1,
+                                "delayTime": 0.1
+                            },
+                            "slidervalue": {
+                                "feedback": 0.1,
+                                "delayTime": 0.4
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 400
+                            },
+                            "slidervalue": {
+                                "frequency": 0.4999374921865233
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.2
+                            },
+                            "slidervalue": {
+                                "wet": 0.2
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                }
+            ],
+            "monotron": {
+                "volume": 0.5,
+                "effects": {
+                    "reverb": {
+                        "value": {
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "wet": 0.2
+                        }
+                    },
+                    "feedback": {
+                        "value": {
+                            "delayTime": 0.2,
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "delayTime": 0.8,
+                            "wet": 0.2
+                        }
+                    },
+                    "distortion": {
+                        "value": {
+                            "wet": 0.5
+                        },
+                        "slidervalue": {
+                            "wet": 0.5
+                        }
+                    }
+                },
+                "controls": []
+            }
+        },
+        "sequencer": {
+            "step": 14,
+            "matrix": [
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "started": true,
+            "selected": "2"
+        }
+    },
+    "3": {
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.92,
+                                "delayTime": 0.0125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.92,
+                                "delayTime": 0.05
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 152.081
+                            },
+                            "slidervalue": {
+                                "frequency": 0.19
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 1
+                            },
+                            "slidervalue": {
+                                "wet": 1
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "distortion",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.96,
+                                "delayTime": 0.0125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.96,
+                                "delayTime": 0.05
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 248.069
+                            },
+                            "slidervalue": {
+                                "frequency": 0.31
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.93
+                            },
+                            "slidervalue": {
+                                "wet": 0.93
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.94,
+                                "delayTime": 0.02
+                            },
+                            "slidervalue": {
+                                "feedback": 0.94,
+                                "delayTime": 0.08
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 32.096
+                            },
+                            "slidervalue": {
+                                "frequency": 0.039999999999999994
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.11
+                            },
+                            "slidervalue": {
+                                "wet": 0.11
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 1,
+                                "delayTime": 0.0175
+                            },
+                            "slidervalue": {
+                                "feedback": 1,
+                                "delayTime": 0.07
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 552.031
+                            },
+                            "slidervalue": {
+                                "frequency": 0.69
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.33
+                            },
+                            "slidervalue": {
+                                "wet": 0.33
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                }
+            ],
+            "monotron": {
+                "volume": 0.5,
+                "effects": {
+                    "reverb": {
+                        "value": {
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "wet": 0.2
+                        }
+                    },
+                    "feedback": {
+                        "value": {
+                            "delayTime": 0.2,
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "delayTime": 0.8,
+                            "wet": 0.2
+                        }
+                    },
+                    "distortion": {
+                        "value": {
+                            "wet": 0.5
+                        },
+                        "slidervalue": {
+                            "wet": 0.5
+                        }
+                    }
+                },
+                "controls": []
+            }
+        },
+        "sequencer": {
+            "step": 10,
+            "matrix": [
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "started": true,
+            "selected": "1"
+        }
+    },
+    "4": {
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.48,
+                                "delayTime": 0
+                            },
+                            "slidervalue": {
+                                "feedback": 0.48,
+                                "delayTime": 0
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 152.081
+                            },
+                            "slidervalue": {
+                                "frequency": 0.19
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 1
+                            },
+                            "slidervalue": {
+                                "wet": 1
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "distortion",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.35,
+                                "delayTime": 0.0125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.35,
+                                "delayTime": 0.05
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 664.0169999999999
+                            },
+                            "slidervalue": {
+                                "frequency": 0.83
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.22
+                            },
+                            "slidervalue": {
+                                "wet": 0.22
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.94,
+                                "delayTime": 0.02
+                            },
+                            "slidervalue": {
+                                "feedback": 0.94,
+                                "delayTime": 0.08
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 32.096
+                            },
+                            "slidervalue": {
+                                "frequency": 0.039999999999999994
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.11
+                            },
+                            "slidervalue": {
+                                "wet": 0.11
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.28,
+                                "delayTime": 0.0175
+                            },
+                            "slidervalue": {
+                                "feedback": 0.28,
+                                "delayTime": 0.07
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 552.031
+                            },
+                            "slidervalue": {
+                                "frequency": 0.69
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.33
+                            },
+                            "slidervalue": {
+                                "wet": 0.33
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                }
+            ],
+            "monotron": {
+                "volume": 0.5,
+                "effects": {
+                    "reverb": {
+                        "value": {
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "wet": 0.2
+                        }
+                    },
+                    "feedback": {
+                        "value": {
+                            "delayTime": 0.2,
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "delayTime": 0.8,
+                            "wet": 0.2
+                        }
+                    },
+                    "distortion": {
+                        "value": {
+                            "wet": 0.5
+                        },
+                        "slidervalue": {
+                            "wet": 0.5
+                        }
+                    }
+                },
+                "controls": []
+            }
+        },
+        "sequencer": {
+            "step": 11,
+            "matrix": [
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "started": true,
+            "selected": "1"
+        }
+    },
+    "5": {
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.92,
+                                "delayTime": 0.0125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.92,
+                                "delayTime": 0.05
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 424.047
+                            },
+                            "slidervalue": {
+                                "frequency": 0.53
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 1
+                            },
+                            "slidervalue": {
+                                "wet": 1
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "distortion",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.12,
+                                "delayTime": 0.0375
+                            },
+                            "slidervalue": {
+                                "feedback": 0.12,
+                                "delayTime": 0.15
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 104.08699999999999
+                            },
+                            "slidervalue": {
+                                "frequency": 0.13
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.31
+                            },
+                            "slidervalue": {
+                                "wet": 0.31
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.94,
+                                "delayTime": 0.2125
+                            },
+                            "slidervalue": {
+                                "feedback": 0.94,
+                                "delayTime": 0.85
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 464.042
+                            },
+                            "slidervalue": {
+                                "frequency": 0.58
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.11
+                            },
+                            "slidervalue": {
+                                "wet": 0.11
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.45,
+                                "delayTime": 0.1675
+                            },
+                            "slidervalue": {
+                                "feedback": 0.45,
+                                "delayTime": 0.67
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 184.077
+                            },
+                            "slidervalue": {
+                                "frequency": 0.23
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.33
+                            },
+                            "slidervalue": {
+                                "wet": 0.33
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                }
+            ],
+            "monotron": {
+                "volume": 0.5,
+                "effects": {
+                    "reverb": {
+                        "value": {
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "wet": 0.2
+                        }
+                    },
+                    "feedback": {
+                        "value": {
+                            "delayTime": 0.2,
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "delayTime": 0.8,
+                            "wet": 0.2
+                        }
+                    },
+                    "distortion": {
+                        "value": {
+                            "wet": 0.5
+                        },
+                        "slidervalue": {
+                            "wet": 0.5
+                        }
+                    }
+                },
+                "controls": []
+            }
+        },
+        "sequencer": {
+            "step": 3,
+            "matrix": [
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "started": true,
+            "selected": "2"
+        }
+    },
+    "6": {
+        "instruments": {
+            "sequencer": [
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.87,
+                                "delayTime": 0.2225
+                            },
+                            "slidervalue": {
+                                "feedback": 0.87,
+                                "delayTime": 0.89
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 760.005
+                            },
+                            "slidervalue": {
+                                "frequency": 0.95
+                            }
+                        },
+                        "distortion": {
+                            "value": {
+                                "wet": 0.91
+                            },
+                            "slidervalue": {
+                                "wet": 0.91
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "distortion",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.1,
+                                "delayTime": 0.1
+                            },
+                            "slidervalue": {
+                                "feedback": 0.1,
+                                "delayTime": 0.4
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 400
+                            },
+                            "slidervalue": {
+                                "frequency": 0.4999374921865233
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.2
+                            },
+                            "slidervalue": {
+                                "wet": 0.2
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.2,
+                                "delayTime": 0.3
+                            },
+                            "slidervalue": {
+                                "feedback": 0.2,
+                                "delayTime": 1.2
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 200
+                            },
+                            "slidervalue": {
+                                "frequency": 0.24990623827978498
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.2
+                            },
+                            "slidervalue": {
+                                "wet": 0.2
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                },
+                {
+                    "volume": 0.5,
+                    "effects": {
+                        "feedback": {
+                            "value": {
+                                "feedback": 0.1,
+                                "delayTime": 0.1
+                            },
+                            "slidervalue": {
+                                "feedback": 0.1,
+                                "delayTime": 0.4
+                            }
+                        },
+                        "filter": {
+                            "value": {
+                                "frequency": 400
+                            },
+                            "slidervalue": {
+                                "frequency": 0.4999374921865233
+                            }
+                        },
+                        "reverb": {
+                            "value": {
+                                "wet": 0.2
+                            },
+                            "slidervalue": {
+                                "wet": 0.2
+                            }
+                        }
+                    },
+                    "controls": [
+                        [
+                            "feedback",
+                            "feedback"
+                        ],
+                        [
+                            "feedback",
+                            "delayTime"
+                        ],
+                        [
+                            "filter",
+                            "frequency"
+                        ],
+                        [
+                            "reverb",
+                            "wet"
+                        ]
+                    ]
+                }
+            ],
+            "monotron": {
+                "volume": 0.5,
+                "effects": {
+                    "reverb": {
+                        "value": {
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "wet": 0.2
+                        }
+                    },
+                    "feedback": {
+                        "value": {
+                            "delayTime": 0.2,
+                            "wet": 0.2
+                        },
+                        "slidervalue": {
+                            "delayTime": 0.8,
+                            "wet": 0.2
+                        }
+                    },
+                    "distortion": {
+                        "value": {
+                            "wet": 0.5
+                        },
+                        "slidervalue": {
+                            "wet": 0.5
+                        }
+                    }
+                },
+                "controls": []
+            }
+        },
+        "sequencer": {
+            "step": 1,
+            "matrix": [
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "started": true,
+            "selected": "0"
+        }
+    }
+}
