@@ -112,22 +112,24 @@
                         controller.signal.onabort = () => {
                             let message = { 'data': { 'writingresult': JSON.stringify({ "success": false, "id": id, "detail": "timeout" }) } };
                             window.zombitron.zombiterface.send(message);
-                            // alert(message)
+                            showMessage("FAILED TO SAVE :(", 500)
                             writing = false;
                             resolve()
                         }
-                        setTimeout(() => controller.abort(), timeout);
+                        let ti = setTimeout(() => controller.abort(), timeout);
 
                         // alert(id)
                         ndef.addEventListener(
                             "reading",
                             (event) => {
+
+                                clearTimeout(ti)
                                 // alert(event.message)
                                 if (event.message.id) {
                                     id = event.message;
                                     let message = { 'data': { 'writingresult': JSON.stringify({ "success": true, "id": id, "detail": "alreadywritten" }) } };
                                     window.zombitron.zombiterface.send(message);
-                                    // alert(message)
+                                    showMessage("SAVED :)", 500)
                                     writing = false;
                                     resolve()
 
@@ -135,14 +137,14 @@
                                     ndef.write(JSON.stringify({ 'id': id }), { signal: controller.signal }).then(res => {
                                         let message = { 'data': { 'writingresult': JSON.stringify({ "success": true, "id": id, "detail": "writing success" }) } };
                                         window.zombitron.zombiterface.send(message);
-                                        // alert(message)
+                                        showMessage("SAVED :)", 500)
                                         writing = false;
                                         resolve()
 
                                     }).catch(fail => {
                                         let message = { 'data': { 'writingresult': JSON.stringify({ "success": false, "id": id, "detail": "failure while writting" }) } };
                                         window.zombitron.zombiterface.send(message);
-                                        // alert(JSON.stringify(fail))
+                                        showMessage("FAILED TO SAVE :(", 500)
                                         writing = false;
                                         resolve()
 
@@ -165,7 +167,23 @@
 
         <script type="text/javascript" src="/assets/js/ui/sequencer.js"></script>
         <script type="text/javascript" src="/zombitron/client/zombiterface.js"></script>
+        <div id="messagebox">
+            <p>Saving success</p>
+        </div>
+        <script type="text/javascript">
+            let messagebox = document.querySelector("#messagebox");
+            messagebox.querySelector("p").innerHTML = "";
+            messagebox.classList.add("hidden");
 
+            function showMessage(mess, temp) {
+                return new Promise((r) => {
+                    messagebox.querySelector("p").innerHTML = mess;
+                    messagebox.classList.remove("hidden");
+                    setTimeout((e) => {
+                        messagebox.classList.add("hidden");
+                    }, temp)
+                })
+            } </script>
     </div>
 </body>
 

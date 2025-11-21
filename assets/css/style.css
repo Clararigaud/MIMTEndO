@@ -10,6 +10,40 @@ body {
     color: var(--border-color);
 }
 
+#messagebox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000000;
+    z-index: 2;
+    visibility: visible;
+    font-size: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+#gigaset #messagebox p {
+    width: 353px;
+}
+
+#gigaset #messagebox {
+    align-items: flex-start;
+    padding-top: 65px;
+}
+
+#messagebox p {
+    transform: rotate(90deg);
+    text-align: center;
+}
+
+#messagebox.hidden {
+    visibility: hidden;
+    z-index: -1000;
+}
+
 .button {
     border-color: var(--border-color);
     border-radius: 50px;
@@ -146,6 +180,7 @@ body {
 #startstop {
     margin-left: 1.5vh;
     margin-top: 3vh;
+    transform: rotate(90deg);
     width: 14vh;
     height: 14vh;
     border-radius: 14vh;
