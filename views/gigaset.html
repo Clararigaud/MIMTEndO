@@ -70,8 +70,11 @@
         <!-- NFC INTERFACE -->
         <script type="text/javascript">
 
-            window.addEventListener('zombiterfaceready', function (e) {
                 const ndef = new NDEFReader();
+                ndef.scan().catch(e => {});
+
+            window.addEventListener('zombiterfaceready', function (e) {
+                // const ndef = new NDEFReader();
                 let writing = false;
                 ndef.scan().then(() => {
                     ndef.onreadingerror = () => {
