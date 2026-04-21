@@ -5,26 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let col = i % 4;
         let n = 13 - col * 4 + row;
         let btn = document.createElement('div');
-        let options = { type: 'button', toggle: true, value: "/sequencer/button" + String(n) }
-        btn.setAttribute('id', 'button' + String(n));
-        btn.setAttribute('data-zombitron', JSON.stringify(options));
+        let options = { type: 'button', toggle: true}
+        let btnid = 'button' + String(n);
+        btn.setAttribute('id', btnid);
+        btn.setAttribute('data-obsokit', JSON.stringify(options));
         btn.classList.add('row-' + row, 'col-' + col);
+        for (let j = 0; j < 4; j++) {
+            let objs = document.createElement('div');
+            objs.setAttribute('id', btnid + "-" + j);
+            objs.classList.add('sub-button', 'instrument-' + j);
+            btn.append(objs)
+        }
         sequencer.appendChild(btn);
     }
 });
 
 let matrix = [];
-window.addEventListener('zombiterfaceready', function () {
-    Object.values(window.zombitron.zombiterface.interfaces).forEach((e) => {
-        for (let i = 0; i < 4; i++) {
-            let objs = document.createElement('div');
-            objs.setAttribute('id', e.id + "-" + i);
-            objs.classList.add('sub-button', 'instrument-' + i);
-            e.element.append(objs)
-        }
-    });
-});
-
 window.addEventListener('seqmatrix', function (m) {
     updateMatrix(m.detail);
 });
@@ -48,9 +44,6 @@ async function updateStep(step) {
             document.querySelector('#instrulight-' + String(i + 1)).classList.add('current');
         }
     }
-
-
-
 }
 
 async function updateMatrix(newmat) {

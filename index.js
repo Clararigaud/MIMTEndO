@@ -1,6 +1,6 @@
-const Zombitron = require("./zombitron/server/Zombitron");
+const Obsokit = require("./obsokit/server/src/Obsokit");
 
-const zombitron = new Zombitron();
+const obsokit = new Obsokit();
 
 function getConfig() {
     const fs = require('fs')
@@ -18,7 +18,7 @@ function writeConfig(id, config){
     return oldConfig;
 }
 
-zombitron.app.get('/machinesetup/:id', function (req, res) {
+obsokit.app.get('/machinesetup/:id', function (req, res) {
     const id = req.params.id;
     let config = getConfig();
     if (config.hasOwnProperty(id)) {
@@ -28,7 +28,7 @@ zombitron.app.get('/machinesetup/:id', function (req, res) {
     }
 });
 
-zombitron.app.get('/machinesetupentries', function (req, res) {
+obsokit.app.get('/machinesetupentries', function (req, res) {
     let config = getConfig();
     if (config) {
         res.send(Object.keys(config));
@@ -37,11 +37,11 @@ zombitron.app.get('/machinesetupentries', function (req, res) {
     }
 });
 
-zombitron.app.use(zombitron.express.json())
-zombitron.app.post('/machinesave/', function (req, res) {
+obsokit.app.use(obsokit.express.json())
+obsokit.app.post('/machinesave/', function (req, res) {
     const postData = req.body;
     let newconf = writeConfig(postData.id, postData.state);
     res.send(Object.keys(newconf));
 });
 
-zombitron.start();
+obsokit.start();

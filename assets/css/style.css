@@ -50,17 +50,17 @@ body {
     position: relative;
 }
 
-.slider.horizontal {
+.slidery {
     border: none;
     height: 40px;
 }
 
-.slider.vertical {
+.sliderx {
     border: none;
     width: 40px;
 }
 
-.slider.horizontal .progressbar {
+.sliderx .progressbar {
     background-color: var(--border-color);
     top: 50%;
     height: 1px;
@@ -71,13 +71,13 @@ body {
     position: absolute;
 }
 
-.slider.vertical .progressbar {
+.slidery .progressbar {
     background-color: var(--border-color);
     left: 50%;
     width: 1px;
 }
 
-.slider.horizontal.slidereffect {
+.sliderx.slidereffect {
     height: 14vh;
     margin-bottom: 0vh;
 }
@@ -90,25 +90,25 @@ body {
 }
 
 #container[value="0"] .slidereffect .progress,
-#button1>.on,
+#selector > #b-0 >.on,
 #container[value="0"] .slidereffect>.cursor {
     background-color: var(--instu-1);
 }
 
 #container[value="1"] .slidereffect .progress,
-#button2>.on,
+#selector > #b-1 >.on,
 #container[value="1"] .slidereffect>.cursor {
     background-color: var(--instu-2);
 }
 
 #container[value="2"] .slidereffect .progress,
-#button3>.on,
+#selector > #b-2 >.on,
 #container[value="2"] .slidereffect>.cursor {
     background-color: var(--instu-3);
 }
 
 #container[value="3"] .slidereffect .progress,
-#button4>.on,
+#selector > #b-3 >.on,
 #container[value="3"] .slidereffect>.cursor {
     background-color: var(--instu-4);
 }
@@ -152,7 +152,7 @@ body {
     z-index: -1;
 }
 
-.slider.horizontal {
+.sliderx {
     position: relative;
     width: 100%;
 }
@@ -300,7 +300,7 @@ body {
     display: flex;
 }
 
-#slidermaster.slider {
+#slidermaster {
     width: 75%;
     height: 14vh;
     margin-left: 3.2vh

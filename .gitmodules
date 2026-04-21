@@ -1,3 +1,3 @@
-[submodule "zombitron"]
-	path = zombitron
-	url = https://github.com/zombitron/zombitron.git
+[submodule "obsokit"]
+	path = obsokit
+	url = https://gitlab.com/obsokit/obsokit

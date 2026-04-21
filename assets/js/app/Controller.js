@@ -103,7 +103,7 @@ export default class Controller {
             this.send('tick');
         });
 
-        window.addEventListener('/save', (e) => {
+        window.addEventListener('iphone/savebutton/value', (e) => {
             if (e.detail) {
                 // check if detected card has already be written
                 // if no write
@@ -149,7 +149,7 @@ export default class Controller {
         // sequencer matrix event listeners
         const sequencermat = ["button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9", "button10", "button11", "button12", "button13", "button14", "button15", "button16"];
         sequencermat.forEach((button) => {
-            window.addEventListener('/sequencer/' + button, (event) => {
+            window.addEventListener('sequencer/' + button + '/value', (event) => {
                 if (!this.isLoading) {
                     let step = parseInt(button.split('button')[1]) - 1;
                     this.machine.updateSequencer(step);
@@ -159,14 +159,15 @@ export default class Controller {
         });
 
         // instrument controls
-        window.addEventListener(String('/instrumentselector'), (event) => {
+        window.addEventListener(String('iphone/selector/value'), (event) => {
             if (!this.isLoading) {
-                this.machine.selected = event.detail;
+                this.machine.selected = parseInt(event.detail.split("b-")[1]);
+                console.log(this.machine.selected)
                 this.sendState();
             }
         });
 
-        window.addEventListener(String('/sequencerloop/onoff'), (event) => {
+        window.addEventListener(String('sequencer/startstop/value'), (event) => {
             if (!this.isLoading) {
                 if (event.detail == true) {
                     this.machine.startSequencer();
@@ -177,7 +178,7 @@ export default class Controller {
             }
         });
 
-        window.addEventListener(String('/bpmcontrol'), (event) => {
+        window.addEventListener(String('sequencer/sliderbpm/value'), (event) => {
             if (!this.isLoading) {
                 this.machine.setBPM(event.detail);
                 this.sendState();
@@ -186,7 +187,7 @@ export default class Controller {
 
         const effectsliders = ['slider1', 'slider2', 'slider3', 'slider4'];
         effectsliders.forEach((slider) => {
-            window.addEventListener('/effectscontrol/' + slider, (event) => {
+            window.addEventListener('iphone/' + slider + '/value', (event) => {
                 if (!this.isLoading) {
                     let nslider = parseInt(slider.split('slider')[1]) - 1;
                     this.machine.setInstrumentEffect(nslider, event.detail);
@@ -195,7 +196,7 @@ export default class Controller {
             })
         });
 
-        // window.addEventListener("/slidermaster", (event) => {
+        // window.addEventListener("/iphone/slidermaster/value", (event) => {
         //     if (!this.isLoading) {
         //         this.machine.setCurrentVolume(event.detail);
         //         this.sendState();
@@ -302,10 +303,10 @@ export default class Controller {
     };
 
     send(key, value = '') {
-        if (window.zombitron.zombiterface.ready) {
+        if (window.obsokit.obsobrowsercli.ready) {
             let message = { 'data': {} };
             message.data[key] = value;
-            window.zombitron.zombiterface.send(message);
+            window.obsokit.obsobrowsercli.send(message);
         }
     };
 }
