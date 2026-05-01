@@ -5,6 +5,10 @@
   "author": "Clara Rigaud",
   "license": "GNU",
   "dependencies": {
-    "obsokit": "file:obsokit"
+    "obsokit": "file:obsokit",
+    "tone": "^13.8.25"
+  },
+  "scripts": {
+    "mimtendo": "node index.js"
   }
 }

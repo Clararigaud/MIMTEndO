@@ -12,21 +12,26 @@ MIMTEndO comes in the form of an articulated box containing two smartphones with
 The instrument allows you to compose 16 steps sequences with 4 instruments that can me modulated with 4 different filters and effects. 
 Each sequence and sound can be recorded on a customizable card equipped with an NFC chip and loaded into the box like a cartridge in a console.
 
-MIMTEndO won the price for best demo at the Web Audio Conference 2025 organized mby IRCAM and Mozilla
+MIMTEndO won the price for best demo at the Web Audio Conference 2025 organized by IRCAM and Mozilla.
 
 ![MIMTEndO](mimtendo.jpg)
 
 ## Install on a 12 + node 
 
+Connect the device to the internet
+```
 git clone with submodules flag --recurse-submodules
 npm install
+```
 
-npx obsokit-install
+Connect to the local network where the phones are going to be connected
 
-yes to acceleration and orientation / no to OSC
+```
+npx obsokit-install 
+// enter ( yes to acceleration and orientation / no to OSC
 
-node index.js
+npm run mimtendo
+```
 
-open interface1 on a NFC able device 
-open interface2 on a webaudio abled device
-
+- open interface1 on a NFC enabled device 
+- open interface2 on a webAudio enabled device
