@@ -2,33 +2,35 @@ import EffectsFactory from '/assets/js/app/EffectsFactory.js';
 
 class Instrument {
     constructor(instru, output, params) {
-        this.options = {
-            volume: {
-                min: 0,
-                max: 1,
-                default: 0.5
-            }
-        };
         this.instrument = instru; // Tone Instance
-
-        this.params = {};
-        this.volume = new Tone.Volume(this.volumeToDB(0.5));
-        this.setVolume(0.5);
-
+        this.name = params.name;
+        this.initVolume();
         this.effects = new EffectsFactory(params.effects);
+
+        this.plugNodes(output);
+
+        this.effectControls = [];
+        if (params.controls) {
+            this.effectControls = this.initEffectControls(params.controls);
+        }
+    }
+
+    plugNodes(output) {
         let nodes = [];
         nodes = this.effects.getNodes();
-        nodes.push(this.volume);
+        nodes.push(this.volume.toneobj);
         nodes.push(output);
         this.instrument.chain(nodes[0]);
         for (let i = 1; i < nodes.length; i++) {
             nodes[i - 1].chain(nodes[i])
         }
-        
-        this.effectControls = [];
-        if (params.controls) {
-            this.effectControls = this.initEffectControls(params.controls);
-        }
+    }
+
+    initVolume() {
+        this.volume = {};
+        this.volume.value = 0.5;
+        this.volume.toneobj = new Tone.Volume(this.volumeToDB(0.5));
+        this.setVolume(0.5);
     }
 
     initEffectControls(controls) {
@@ -50,31 +52,35 @@ class Instrument {
 
     getState() {
         return {
-            'volume': this.params.volume,
+            'volume': this.volume.value,
             'effects': this.effects.getState(),
             'controls': this.effectControls
         }
     }
 
-    getParamValue(realvalue, param) {
-        return (realvalue - this.options[param].min) / (this.options[param].max - this.options[param].min);
-    }
-
     setVolume(v) {
         let volumedb = this.volumeToDB(v);
-        this.volume.volume.value = volumedb;
-        this.params.volume = v;
+        this.volume.toneobj.volume.value = volumedb;
+        this.volume.value = v;
     }
 
     volumeToDB(vol) {
         return Math.round(20 * Math.log10((vol / 2 + 0.000001) * 10));
     }
 
-    setControllableEffect(nvariable, value) {
-        if (this.effectControls[nvariable]) {
-            this.effects.changeParam(this.effectControls[nvariable][0], this.effectControls[nvariable][1], value);
+    updateEffects(effects) {
+        Object.keys(effects).forEach((effect) => {
+            Object.keys(effects[effect]["value"]).forEach((variable) => {
+                this.effects.setParam_ValueSpace(effect, variable, effects[effect]["value"][variable])
+            })
+        })
+    }
+
+    setControllableEffect(variable, value) {
+        if (this.effectControls[variable]) {
+            this.effects.setParam_NormSpace(this.effectControls[variable][0], this.effectControls[variable][1], value);
         }
-        else { console.log(nvariable, " is not assigned") }
+        else { console.log(variable, " is not assigned") }
     }
 }
 

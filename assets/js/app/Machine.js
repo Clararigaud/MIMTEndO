@@ -4,8 +4,8 @@ import { PlayerInstrument, SamplerInstrument } from "/assets/js/app/Instrument.j
 
 export default class Machine {
     constructor() {
-        this.seqInstruments = [null, null, null, null];
-        this.monotronInstrument = null;
+        // instruments 
+        this.instruments = [];
         this.compressor;
         this.sequencer = new Sequencer(16);
         this.state = {
@@ -13,43 +13,48 @@ export default class Machine {
         }
 
         this.selected = 0;
-        this.currentChord = {
-            name: '',
-            notes: []
-        };
 
-        this.options = {
-            bpm: {
-                min: 20,
-                max: 200,
-                default: 100,
-            }
+        this.bpm = {
+            min: 20,
+            max: 200,
+            default: 100,
+            slidervalue: null
         };
-
-        this.bpmslider = null;
         Tone.context.resume();
     }
 
     async initialize(setup) {
+        let seqIndices = [null,null,null,null];
         return new Promise((done) => {
             this.compressor = new Tone.Compressor(-30, 3).toMaster();
-            this.setBPMFromBPMSpace(this.options.bpm.default);
-            // this.setBPM( (this.options.bpm.default + this.options.bpm.min) * (this.options.bpm.max - this.options.bpm.min))
-            Promise.all([
-                this.initializeSequencer(setup.sequencer),
-                new SamplerInstrument(this.compressor, setup.monotron.instrument).then((result) => { this.monotronInstrument = result; })
-            ]).then(() => {
+            this.setBPM_SliderSpace(this.bpm.default);
+            Promise.all(setup.instruments.map((instrument, i) => {
+                // Check type
+                if (instrument.type == "player") {
+                    return new PlayerInstrument(this.compressor, instrument).then((r) => {
+                        this.instruments.push(r)
+                        if (setup.sequencer.instruments.includes(instrument.name)) {
+                            seqIndices[setup.sequencer.instruments.indexOf(instrument.name)]= r
+                        }
+                    })
+                } else {
+                    return
+                }
+            })
+            ).then(() => {
+                //  get sequencer select
+                this.sequencer.initialize(seqIndices); // getnames
                 Tone.Transport.start();
                 this.state.initialized = true;
-                // this.sequencer.start();
+                this.sequencer.start();
                 done();
             })
-        })
+        });
     }
 
     updateSetup(setup) {
-        if (setup.bpm) {
-            this.setBPMFromBPMSpace(setup.bpm);
+        if (setup.sliderbpm) {
+            this.setBPM_SliderSpace(setup.sliderbpm);
         }
         if (setup.hasOwnProperty("sequencer")) {
             if (setup.sequencer.hasOwnProperty("matrix")) {
@@ -59,54 +64,30 @@ export default class Machine {
             }
         }
         if (setup.hasOwnProperty("instruments")) {
-            if (setup.instruments.hasOwnProperty("sequencer")) {
-                setup.instruments.sequencer.forEach((instru, i) => {
-                    if(instru.hasOwnProperty("volume") && this.seqInstruments[i].volume){
-                        this.seqInstruments[i].setVolume(instru.volume)
+            setup.instruments.forEach((instru, i) => {
+                if (instru.hasOwnProperty("slidermaster") && this.instruments[i].volume.value) {
+                    this.instruments[i].setVolume(instru.slidermaster);
+                }
+                for (let k = 0; k < 4; k++) { // each sliders
+                    if (instru.hasOwnProperty("slider" + String(k + 1))) {
+                        this.instruments[i].setControllableEffect(k, instru["slider" + String(k + 1)]);
                     }
-                    if(instru.hasOwnProperty("effects")){
-                        const effects = instru.effects;
-                        Object.keys(effects).forEach((effect)=>{
-                            Object.keys(effects[effect]["value"]).forEach((variable)=>{
-                                this.seqInstruments[i].effects.setParam(effect, variable, effects[effect]["value"][variable])
-                            })
-                        })
-                    }
-                })
-            }
-            if (setup.instruments.hasOwnProperty("monotron")) {
-
-            }
-        }
-    }
-
-    async initializeSequencer(seq_setup) {
-        return new Promise((done) => {
-            Promise.all([
-                new PlayerInstrument(this.compressor, seq_setup.instruments[0]).then((r) => { this.seqInstruments[0] = r }),
-                new PlayerInstrument(this.compressor, seq_setup.instruments[1]).then((r) => { this.seqInstruments[1] = r }),
-                new PlayerInstrument(this.compressor, seq_setup.instruments[2]).then((r) => { this.seqInstruments[2] = r }),
-                new PlayerInstrument(this.compressor, seq_setup.instruments[3]).then((r) => { this.seqInstruments[3] = r })
-            ]).then(() => {
-                this.sequencer.initialize(this.seqInstruments, seq_setup.matrix);
-                done();
+                }
             })
-        })
+        }
     }
 
     getInstrumentsState() {
         let instruments = {};
         instruments.sequencer = [];
-        this.seqInstruments.forEach((instru, i) => {
+        this.instruments.forEach((instru, i) => {
             instruments.sequencer.push(instru.getState());
         });
-        instruments.monotron = this.monotronInstrument.getState();
         return instruments;
     }
 
     getState() {
         let state = this.state;
-        state.options = this.options;
         state.bpm = { value: this.getBPM(), slidervalue: this.getNormBPM() };
         state.sequencer = this.sequencer.getState();
         state.instruments = this.getInstrumentsState();
@@ -115,44 +96,38 @@ export default class Machine {
     }
 
     sliderToBPM(v) {
-        return v * (this.options.bpm.max - this.options.bpm.min) + this.options.bpm.min;
+        return v * (this.bpm.max - this.bpm.min) + this.bpm.min;
     }
 
     getBPM() {
-        return Math.round(this.sliderToBPM(this.bpmslider));
+        return Math.round(this.sliderToBPM(this.bpm.slidervalue));
     }
 
     getNormBPM() {
-        return this.bpmslider;
+        return this.bpm.slidervalue;
     }
 
 
-    setBPMFromBPMSpace(bpmvalue) {
-        this.setBPM((bpmvalue - this.options.bpm.min) / (this.options.bpm.max - this.options.bpm.min))
+    setBPM_SliderSpace(bpmvalue) {
+        this.setBPM_SliderSpace((bpmvalue - this.bpm.min) / (this.bpm.max - this.bpm.min))
     }
 
-    setBPM(value) {
+    setBPM_SliderSpace(value) {
         if (this.getNormBPM() != value) {
-            this.bpmslider = value;
+            this.bpm.slidervalue = value;
             Tone.Transport.bpm.value = this.getBPM();
         }
     }
 
     // INSTRUMENTS CONTROL OPTIONS
     setCurrentVolume(v) {
-        this.seqInstruments[this.selected].setVolume(v);
+        this.instruments[this.selected].setVolume(v);
     }
 
-    setCurrentEffect(effect, value) {
-        this.seqInstruments[this.selected].setEffect(effect, value);
-    }
-
-    setInstrumentEffect(nslider, value) {
+    setSelectedInstrumentEffect(nslider, value) {
         let targetInstrument;
-        if (this.selected < this.seqInstruments.length) {
-            targetInstrument = this.seqInstruments[this.selected];
-        } else if (this.selected = 5) {
-            targetInstrument = this.monotronInstrument;
+        if (this.selected < this.instruments.length) {
+            targetInstrument = this.instruments[this.selected];
         } else { return }
         targetInstrument.setControllableEffect(nslider, value);
     }

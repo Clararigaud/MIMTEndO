@@ -1,6 +1,6 @@
 window.addEventListener('tick', function (e) {
     drawMetronome();
-    pickLed();
+    pickLed(e.detail);
 })
 
 var a = 30;
@@ -9,14 +9,13 @@ var ctx = canvas.getContext("2d");
 var r = 100;
 var a = 30;
 var offset = [0, 50];
-var counter = 0;
 
 function drawMetronome() {
     a = -a;
     ctx.clearRect(0, 0, 300, 300);
     ctx.fillStyle = "red";
     ctx.strokeStyle = "white";
-    var pos = getPos(a, r, offset);;
+    var pos = getPos(a, r, offset);
     ctx.beginPath();
     ctx.moveTo(offset[0], offset[1]);
     ctx.lineTo(pos[0], pos[1]);
@@ -34,12 +33,12 @@ function getPos(a, r, offset) {
     return [Math.cos(arad) * r + offset[0], Math.sin(arad) * r + offset[1]];
 }
 
-function pickLed(){
+function pickLed(counter){
     var rem = document.querySelector(".steplight.active")
     if(rem){
         rem.classList.remove("active");
     }
-    counter = counter % 4 + 1;
-    document.querySelector("#steplight-" + String(counter)).classList.add("active");
+    // counter = counter % 4 + 1;
+    document.querySelector("#steplight-" + String(counter+1)).classList.add("active");
     // console.log(counter);
 }

@@ -1,55 +1,26 @@
 export default class EffectsFactory {
     constructor(effects) {
         this.effectsparams = {
-            'feedback': {
+            'feedback': { // Tone FeedbackDelay
                 'feedback': { 'min': 0, 'max': 1, 'default': 1 },
                 'delayTime': { 'min': 0, 'max': 0.25, 'default': 0.25 },
                 'wet': { 'min': 0, 'max': 1, 'default': 0.2 }
             },
-            'reverb': {
+            'reverb': { // Tone JCReverb
                 'wet': { 'min': 0, 'max': 1, 'default': 0.2 }
             },
-            'distortion': {
+            'distortion': { // Tone Distortion
                 'wet': { 'min': 0, 'max': 1, 'default': 0.2 }
             },
-            'filter': {
+            'filter': { // Tone Filter
                 'frequency': { 'min': 0.1, 'max': 800, 'default': 200 }
             }
         };
-        this.nodes = this.initializeEffects(effects);
+        this.nodes = Object.fromEntries(Object.keys(effects).map(effect => [effect, this.initializeEffect(effect, effects[effect])]));
     }
 
     nodesLen() {
         return Object.values(this.nodes).length;
-    }
-
-    initializeEffects(effects) {
-        let effectsres = {};
-        Object.keys(effects).forEach((effect) => {
-            effectsres[effect] = this.initializeEffect(effect, effects[effect])
-        })
-        return effectsres;
-    }
-
-    initDefault(params, effect, evar) {
-        if (params.hasOwnProperty(evar)) {
-            this.effectsparams[effect][evar].default = params[evar];
-            return params[evar]
-        }
-
-        return this.effectsparams[effect][evar].default
-    }
-
-    initParams(effectobj, params, effect) {
-        let vars = Object.keys(this.effectsparams[effect]);
-        vars.forEach(v => {
-            if (params.hasOwnProperty(v)) {
-                this.effectsparams[effect][v].default = params[v];
-                effectobj.params[v] = params[v];
-                effectobj.clampedparams[v] = this.toSliderSpace(params[v], this.effectsparams[effect][v]);
-            }
-        })
-        return effectobj
     }
 
     getState() {
@@ -57,7 +28,7 @@ export default class EffectsFactory {
         Object.keys(this.nodes).forEach((effect) => {
             state[effect] = {
                 "value": this.nodes[effect].params,
-                "slidervalue": this.nodes[effect].clampedparams
+                "slidervalue": this.nodes[effect].normedParams
             }
         })
         return state
@@ -67,9 +38,18 @@ export default class EffectsFactory {
         let effectobj = {
             "node": null,
             "params": {},
-            "clampedparams": {}
+            "normedParams": {}
         }
-        effectobj = this.initParams(effectobj, params, effect);
+
+        let vars = Object.keys(this.effectsparams[effect]);
+        vars.forEach(v => {
+            if (params.hasOwnProperty(v)) {
+                this.effectsparams[effect][v].default = params[v];
+                effectobj.params[v] = params[v];
+                effectobj.normedParams[v] = this.toNormSpace(params[v], this.effectsparams[effect][v]);
+            }
+        })
+
         switch (effect) {
             case 'feedback':
                 effectobj.node = new Tone.FeedbackDelay(effectobj.params.delayTime, effectobj.params.feedback);
@@ -89,26 +69,24 @@ export default class EffectsFactory {
         return effectobj;
     }
 
-    changeParam(effect, param, value) {
+    setParam_NormSpace(effect, param, value) { // from 0..1 space
+        this.updateParam(effect, param, value, this.toValueSpace(value, this.effectsparams[effect][param]));
+    }
+
+    setParam_ValueSpace(effect, param, value) { // from param space
+        this.updateParam(effect, param, this.toNormSpace(value, this.effectsparams[effect][param]), value);
+    }
+
+    updateParam(effect, param, valuenorm, valueeffect) {
         if (this.nodes.hasOwnProperty(effect)) {
             if (this.nodes[effect].params.hasOwnProperty(param)) {
-                let newval = this.toEffectValueSpace(value, this.effectsparams[effect][param]);
-                this.nodes[effect].node[param].value = newval;
-                this.nodes[effect].params[param] = newval;
-                this.nodes[effect].clampedparams[param] = value;
+                this.nodes[effect].node[param].value = valueeffect;
+                this.nodes[effect].params[param] = valueeffect;
+                this.nodes[effect].normedParams[param] = valuenorm;
             }
         }
     }
 
-    setParam(effect, param, value) {
-        if (this.nodes.hasOwnProperty(effect)) {
-            if (this.nodes[effect].params.hasOwnProperty(param)) {
-                this.nodes[effect].node[param].value = value;
-                this.nodes[effect].params[param] = value;
-                this.nodes[effect].clampedparams[param] = this.toSliderSpace(value, this.effectsparams[effect][param]);
-            }
-        }
-    }
     getNodes() {
         let nodes = [];
         Object.keys(this.nodes).forEach(effect => {
@@ -117,15 +95,11 @@ export default class EffectsFactory {
         return nodes;
     }
 
-    toEffectValueSpace(v, option) {
-        return this.clamp(v, option.min, option.max);
+    toValueSpace(v, option) {
+        return v * (option.max - option.min) + option.min;
     }
 
-    clamp(v, min, max) {
-        return v * (max - min) + min;
-    }
-
-    toSliderSpace(v, option) {
+    toNormSpace(v, option) {
         return (v - option.min) / (option.max - option.min);
     }
 }

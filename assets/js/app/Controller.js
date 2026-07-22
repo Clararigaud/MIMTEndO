@@ -1,76 +1,96 @@
 import Machine from '/assets/js/app/Machine.js';
 export default class Controller {
     constructor() {
-        let machinesetup = { // saved in file 
-            sequencer: {
-                instruments: [
-                    { url: "./assets/js/app/instruments/kickoo.wav", effects: { feedback: { feedback: 0.1, delayTime: 0.1 }, filter: { frequency: 400 }, distortion: { wet: 0.2 } }, controls: ['feedback.feedback', 'feedback.delayTime', 'filter.frequency', 'distortion.wet'] },
-                    { url: "./assets/js/app/instruments/snorecool.wav", effects: { feedback: { feedback: 0.1, delayTime: 0.1 }, filter: { frequency: 400 }, reverb: { wet: 0.2 } }, controls: ['feedback.feedback', 'feedback.delayTime', 'filter.frequency', 'reverb.wet'] },
-                    { url: "./assets/js/app/instruments/clap.wav", effects: { feedback: { feedback: 0.2, delayTime: 0.3 }, filter: { frequency: 200 }, reverb: { wet: 0.2 } }, controls: ['feedback.feedback', 'feedback.delayTime', 'filter.frequency', 'reverb.wet'] },
-                    { url: "./assets/js/app/instruments/hiha.wav", effects: { feedback: { feedback: 0.1, delayTime: 0.1 }, filter: { frequency: 400 }, reverb: { wet: 0.2 } }, controls: ['feedback.feedback', 'feedback.delayTime', 'filter.frequency', 'reverb.wet'] }
-                ],
-                matrix: [
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0],
-                    [0, 0, 0, 0], [0, 0, 0, 0]
+        let instruments = "instruments1";
+
+        let defaultstate = {
+            "sequencer": {
+                "matrix": [
+                    [0,0,0,1],
+                    [1,1,0,0],
+                    [1,1,0,0],
+                    [0,0,1,0],
+                    [1,0,1,0],
+                    [0,1,0,0],
+                    [1,0,0,0],
+                    [0,1,0,1],
+                    [1,0,1,0],
+                    [1,0,0,1],
+                    [0,1,1,0],
+                    [0,1,0,1],
+                    [0,1,0,0],
+                    [0,0,1,1],
+                    [0,0,1,1],
+                    [1,0,0,0]
                 ]
             },
-            monotron: {
-                instrument: {
-                    url: "./assets/js/app/instruments/synths/cool2/",
-                    effects: {
-                        reverb: {
-                            wet: 0.2
-                        },
-                        feedback: {
-                            delayTime: 0.2,
-                            wet: 0.2
-                        },
-                        distortion: {
-                            wet: 0.5
-                        }
-                    },
-                    noteUrls: {
-                        "A3": "A3.wav",
-                        "A#3": "Asharp3.wav",
-                        "B3": "B3.wav",
-                        "C3": "C3.wav",
-                        "C#3": "Csharp3.wav",
-                        "D3": "D3.wav",
-                        "D#3": "Dsharp3.wav",
-                        "E3": "E3.wav",
-                        "F3": "F3.wav",
-                        "F#3": "Fsharp3.wav",
-                        "G3": "G3.wav",
-                        "G#3": "Gsharp3.wav"
-                    }
+            "sliderbpm": 0.001+ Math.round(Math.random() * 100) / 100,
+            "instruments": [
+                {
+                    "slidermaster": Math.round(Math.random() * 100) / 100,
+                    "slider1": Math.round(Math.random() * 100) / 100,
+                    "slider2": Math.round(Math.random() * 100) / 100,
+                    "slider3": Math.round(Math.random() * 100) / 100,
+                    "slider4": Math.round(Math.random() * 100) / 100
+                },
+                {
+                    "slidermaster": Math.round(Math.random() * 100) / 100,
+                    "slider1": Math.round(Math.random() * 100) / 100,
+                    "slider2": Math.round(Math.random() * 100) / 100,
+                    "slider3": Math.round(Math.random() * 100) / 100,
+                    "slider4": Math.round(Math.random() * 100) / 100
+                }, {
+                    "slidermaster": Math.round(Math.random() * 100) / 100,
+                    "slider1": Math.round(Math.random() * 100) / 100,
+                    "slider2": Math.round(Math.random() * 100) / 100,
+                    "slider3": Math.round(Math.random() * 100) / 100,
+                    "slider4": Math.round(Math.random() * 100) / 100
+                }, {
+                    "slidermaster": Math.round(Math.random() * 100) / 100,
+                    "slider1": Math.round(Math.random() * 100) / 100,
+                    "slider2": Math.round(Math.random() * 100) / 100,
+                    "slider3": Math.round(Math.random() * 100) / 100,
+                    "slider4": Math.round(Math.random() * 100) / 100
                 }
-            }
+            ]
         }
+
+        console.log(defaultstate.sliderbpm)
         this.isLoading = false;
-        this.machine = new Machine();
+        new Promise(finito => {
+            fetch('/machineinstruments/' + String(instruments)).then((res => {
+                res.blob().then(data => {
+                    data.text().then(r => {
+                        let json = JSON.parse(r);
+                        if (json != {}) {
+                            finito(json)
+                        }
+                        finito(null)
+                    })
+                })
+            }))
+        }).then((instrus) => {
+            this.machine = new Machine();
 
-        this.machine.initialize(machinesetup).then(() => {
-            this.initializeControllers();
-            this.initializeEvents();
-        });
+            this.machine.initialize(instrus).then(() => {
+                this.initializeControllers();
+                this.initializeEvents();
+                this.loadState(defaultstate);
+                this.sendState();
+            });
 
-        this.setupEntries;
+            this.setupEntries;
+            this.getSetupEntries().then((res) => {
+                this.setupEntries = res;
+            })
 
-        this.getSetupEntries().then((res) => {
-            this.setupEntries = res;
         })
+
     }
 
-    onCard(id) {
+    onCard(id) { // NFC detected
         if (id != null) {
             if (this.setupEntries.includes(String(id))) {
-                // setTimeout(() => {
                 this.isLoading = true;
                 this.getSetup(id).then(res => {
                     if (res) {
@@ -81,7 +101,6 @@ export default class Controller {
                     }
                     this.isLoading = false;
                 });
-                // }, 100)
             } else {
                 console.log("unknown setup")
             }
@@ -100,7 +119,7 @@ export default class Controller {
         });
 
         window.addEventListener('mytick', () => {
-            this.send('tick');
+            this.send('tick', Math.round(this.machine.getSequencerStep()/4));
         });
 
         window.addEventListener('iphone/savebutton/value', (e) => {
@@ -146,6 +165,10 @@ export default class Controller {
             }
         });
 
+        window.addEventListener("ping", (event) => {
+            this.sendState();
+        })
+
         // sequencer matrix event listeners
         const sequencermat = ["button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9", "button10", "button11", "button12", "button13", "button14", "button15", "button16"];
         sequencermat.forEach((button) => {
@@ -162,7 +185,6 @@ export default class Controller {
         window.addEventListener(String('iphone/selector/value'), (event) => {
             if (!this.isLoading) {
                 this.machine.selected = parseInt(event.detail.split("b-")[1]);
-                console.log(this.machine.selected)
                 this.sendState();
             }
         });
@@ -180,7 +202,7 @@ export default class Controller {
 
         window.addEventListener(String('sequencer/sliderbpm/value'), (event) => {
             if (!this.isLoading) {
-                this.machine.setBPM(event.detail);
+                this.machine.setBPM_SliderSpace(event.detail);
                 this.sendState();
             }
         });
@@ -190,7 +212,7 @@ export default class Controller {
             window.addEventListener('iphone/' + slider + '/value', (event) => {
                 if (!this.isLoading) {
                     let nslider = parseInt(slider.split('slider')[1]) - 1;
-                    this.machine.setInstrumentEffect(nslider, event.detail);
+                    this.machine.setSelectedInstrumentEffect(nslider, event.detail);
                     this.sendState();
                 }
             })
@@ -202,18 +224,6 @@ export default class Controller {
         //         this.sendState();
         //     }
         // })
-
-        window.addEventListener(String('/chordselector'), (event) => {
-            if (!this.isLoading) {
-                this.machine.onChord(event.detail);
-            }
-        });
-
-        window.addEventListener(String('/gigaset/slider1_y'), (event) => {
-            if (!this.isLoading) {
-                this.machine.onHarp(event.detail);
-            }
-        });
     }
 
     async saveState(id) {

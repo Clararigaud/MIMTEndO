@@ -1,0 +1,99 @@
+{
+    "sequencer" : {
+        "instruments": ["snare","kick","clap", "hihat"]
+    },
+    "instruments": [
+        {
+            "name": "kick",
+            "type": "player",
+            "url": "./assets/js/app/instruments/kickoo.wav",
+            "effects": {
+                "feedback": {
+                    "feedback": 0.1,
+                    "delayTime": 0.1
+                },
+                "filter": {
+                    "frequency": 400
+                },
+                "distortion": {
+                    "wet": 0.2
+                }
+            },
+            "controls": [
+                "feedback.feedback",
+                "feedback.delayTime",
+                "filter.frequency",
+                "distortion.wet"
+            ]
+        },
+        {
+            "name": "snare",
+            "type": "player",
+            "url": "./assets/js/app/instruments/snorecool.wav",
+            "effects": {
+                "feedback": {
+                    "feedback": 0.1,
+                    "delayTime": 0.1
+                },
+                "filter": {
+                    "frequency": 400
+                },
+                "reverb": {
+                    "wet": 0.2
+                }
+            },
+            "controls": [
+                "feedback.feedback",
+                "feedback.delayTime",
+                "filter.frequency",
+                "reverb.wet"
+            ]
+        },
+        {
+            "name": "clap",
+            "type": "player",
+            "url": "./assets/js/app/instruments/clap.wav",
+            "effects": {
+                "feedback": {
+                    "feedback": 0.2,
+                    "delayTime": 0.3
+                },
+                "filter": {
+                    "frequency": 200
+                },
+                "reverb": {
+                    "wet": 0.2
+                }
+            },
+            "controls": [
+                "feedback.feedback",
+                "feedback.delayTime",
+                "filter.frequency",
+                "reverb.wet"
+            ]
+        },
+        {
+            "name": "hihat",
+            "type": "player",
+            "url": "./assets/js/app/instruments/hiha.wav",
+            "effects": {
+                "feedback": {
+                    "feedback": 0.1,
+                    "delayTime": 0.1
+                },
+                "filter": {
+                    "frequency": 400
+                },
+                "reverb": {
+                    "wet": 0.2
+                }
+            },
+            "controls": [
+                "feedback.feedback",
+                "feedback.delayTime",
+                "filter.frequency",
+                "reverb.wet"
+            ]
+        }
+    ]
+}

@@ -5,12 +5,11 @@ export default class Sequencer {
         this.instruments = [];
         this.steptickevent = new CustomEvent('steptick', {});
         this.tickevent = new CustomEvent('mytick', {});
-
     }
 
-    async initialize(instruments, matrix) {
+    async initialize(instruments) {
         this.instruments = instruments;
-        this.matrix = this.initializeMatrix(matrix);
+        this.matrix = this.initializeMatrix();
         this.loop = new Tone.Loop((time) => {
             this.playSounds(time);
             this.step = (this.step + 1) % this.size;
@@ -48,12 +47,8 @@ export default class Sequencer {
         }
     }
 
-    initializeMatrix(matrixsetup) {
-        let matrix = []
-
-        if (matrixsetup) {
-            matrix = matrixsetup
-        }
+    initializeMatrix() {
+        let matrix = [];
 
         let step = [];
         for (let i = 0; i < this.size; i++) {

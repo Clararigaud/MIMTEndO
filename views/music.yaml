@@ -1,0 +1,6 @@
+name: MusicPlayer
+options: 
+    fullscreen : false
+    reloadOnDoubleClick: false
+modules:
+    - "/assets/js/app/main.js"
