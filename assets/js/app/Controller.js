@@ -2,60 +2,6 @@ import Machine from '/assets/js/app/Machine.js';
 export default class Controller {
     constructor() {
         let instruments = "instruments1";
-
-        let defaultstate = {
-            "sequencer": {
-                "matrix": [
-                    [0,0,0,1],
-                    [1,1,0,0],
-                    [1,1,0,0],
-                    [0,0,1,0],
-                    [1,0,1,0],
-                    [0,1,0,0],
-                    [1,0,0,0],
-                    [0,1,0,1],
-                    [1,0,1,0],
-                    [1,0,0,1],
-                    [0,1,1,0],
-                    [0,1,0,1],
-                    [0,1,0,0],
-                    [0,0,1,1],
-                    [0,0,1,1],
-                    [1,0,0,0]
-                ]
-            },
-            "sliderbpm": 0.001+ Math.round(Math.random() * 100) / 100,
-            "instruments": [
-                {
-                    "slidermaster": Math.round(Math.random() * 100) / 100,
-                    "slider1": Math.round(Math.random() * 100) / 100,
-                    "slider2": Math.round(Math.random() * 100) / 100,
-                    "slider3": Math.round(Math.random() * 100) / 100,
-                    "slider4": Math.round(Math.random() * 100) / 100
-                },
-                {
-                    "slidermaster": Math.round(Math.random() * 100) / 100,
-                    "slider1": Math.round(Math.random() * 100) / 100,
-                    "slider2": Math.round(Math.random() * 100) / 100,
-                    "slider3": Math.round(Math.random() * 100) / 100,
-                    "slider4": Math.round(Math.random() * 100) / 100
-                }, {
-                    "slidermaster": Math.round(Math.random() * 100) / 100,
-                    "slider1": Math.round(Math.random() * 100) / 100,
-                    "slider2": Math.round(Math.random() * 100) / 100,
-                    "slider3": Math.round(Math.random() * 100) / 100,
-                    "slider4": Math.round(Math.random() * 100) / 100
-                }, {
-                    "slidermaster": Math.round(Math.random() * 100) / 100,
-                    "slider1": Math.round(Math.random() * 100) / 100,
-                    "slider2": Math.round(Math.random() * 100) / 100,
-                    "slider3": Math.round(Math.random() * 100) / 100,
-                    "slider4": Math.round(Math.random() * 100) / 100
-                }
-            ]
-        }
-
-        console.log(defaultstate.sliderbpm)
         this.isLoading = false;
         new Promise(finito => {
             fetch('/machineinstruments/' + String(instruments)).then((res => {
@@ -75,7 +21,7 @@ export default class Controller {
             this.machine.initialize(instrus).then(() => {
                 this.initializeControllers();
                 this.initializeEvents();
-                this.loadState(defaultstate);
+                this.loadState("default");
                 this.sendState();
             });
 
@@ -91,16 +37,7 @@ export default class Controller {
     onCard(id) { // NFC detected
         if (id != null) {
             if (this.setupEntries.includes(String(id))) {
-                this.isLoading = true;
-                this.getSetup(id).then(res => {
-                    if (res) {
-                        this.loadState(res);
-                        this.sendState();
-                    } else {
-                        console.log("failed to load setup")
-                    }
-                    this.isLoading = false;
-                });
+                this.loadState(id);
             } else {
                 console.log("unknown setup")
             }
@@ -119,7 +56,7 @@ export default class Controller {
         });
 
         window.addEventListener('mytick', () => {
-            this.send('tick', Math.round(this.machine.getSequencerStep()/4));
+            this.send('tick', Math.round(this.machine.getSequencerStep() / 4));
         });
 
         window.addEventListener('iphone/savebutton/value', (e) => {
@@ -133,8 +70,8 @@ export default class Controller {
                 window.addEventListener('writingresult', (e) => {
                     const res = JSON.parse(e.detail);
                     if (res.success) {
-                        this.saveState(res.id).then(res => {
-                            this.setupEntries = res;
+                        this.saveState(res.id).then(oui => {
+                            this.setupEntries = oui;
                         })
                     }
                     else {
@@ -229,9 +166,23 @@ export default class Controller {
     async saveState(id) {
         return new Promise((done, fail) => {
             let state = this.machine.getState();
-            let saving = {}
-            saving.instruments = state.instruments;
-            saving.sequencer = state.sequencer;
+            let saving = {
+                sequencer: {
+                    matrix: state.sequencer.matrix
+                },
+                sliderbpm: state.bpm.slidervalue
+            }
+            saving.instruments = [];
+            state.instruments.sequencer.forEach((instrument) => {
+                saving.instruments.push({
+                    "slidermaster": instrument.volume,
+                    "slider1": instrument.effects[instrument.controls[0][0]]["slidervalue"][instrument.controls[0][1]],
+                    "slider2": instrument.effects[instrument.controls[1][0]]["slidervalue"][instrument.controls[1][1]],
+                    "slider3": instrument.effects[instrument.controls[2][0]]["slidervalue"][instrument.controls[2][1]],
+                    "slider4": instrument.effects[instrument.controls[3][0]]["slidervalue"][instrument.controls[3][1]]
+                })
+            })
+
             const obj = { "id": id, "state": saving }
             fetch('/machinesave/', {
                 method: "POST",
@@ -255,8 +206,18 @@ export default class Controller {
         })
     }
 
-    loadState(setup) {
-        this.machine.updateSetup(setup);
+    loadState(id) {
+        this.isLoading = true;
+        this.getSetup(id).then(res => {
+            if (res) {
+
+                this.machine.updateSetup(res);
+                this.sendState();
+            } else {
+                console.log("failed to load setup")
+            }
+            this.isLoading = false;
+        });
     }
 
     async getSetupEntries() {
