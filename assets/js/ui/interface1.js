@@ -1,7 +1,6 @@
 window.addEventListener('obsokitready', function (objobsokit) {
     let obso = objobsokit.detail;
-    obso.send({ 'data': { "ping": null } });
-
+    obso.sendMsg("ping");
     window.addEventListener('state', function (e) { // get current machine values on load
         let state = e.detail.machine;
         obso.find("sliderbpm").updateIfChanged(state.bpm.slidervalue);

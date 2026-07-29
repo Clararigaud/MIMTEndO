@@ -273,11 +273,9 @@ export default class Controller {
         this.send('seqstep', this.machine.getSequencerStep());
     };
 
-    send(key, value = '') {
+    send(key, value = null) {
         if (window.obsokit.obsobrowsercli.ready) {
-            let message = { 'data': {} };
-            message.data[key] = value;
-            window.obsokit.obsobrowsercli.send(message);
+            window.obsokit.obsobrowsercli.sendMsg(key, value);
         }
     };
 }

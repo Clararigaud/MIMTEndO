@@ -3,7 +3,7 @@ window.addEventListener('obsokitready', function (e) {
     var selector;
     var obso = null;
     obso = e.detail;
-    obso.send({ 'data': { "ping": null } });
+    obso.sendMsg("ping")
     selector = obso.find("selector");
 
     window.addEventListener('state', function (e) { // first get current state on load 

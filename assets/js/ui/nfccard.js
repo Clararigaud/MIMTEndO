@@ -34,30 +34,24 @@ window.addEventListener('obsokitready', function (objobsokit) {
                 let msg = e.detail;
                 let event = e.detail;
                 clearTimeout(ti)
-
-
                 if (msg[0].hasOwnProperty("id")) { // already recorded
                     id = msg[0].id;
-
                     obso.sendMsg('writingresult', JSON.stringify({ "success": true, "id": id, "detail": "alreadywritten" }));
                     showMessage("SAVED :)", 500)
                     writing = false;
                     resolve()
                 } else {
                     obso.nfc.ndef.write(id, { signal: controller.signal }).then(res => {
-                        let message = { 'data': { 'writingresult': JSON.stringify({ "success": true, "id": id, "detail": "writing success" }) } };
-                        obso.send(message);
+                        obso.sendMsg('writingresult', JSON.stringify({ "success": true, "id": id, "detail": "writing success" }));
                         showMessage("SAVED :)", 500)
                         writing = false;
                         resolve()
                     }).catch(fail => {
-                        let message = { 'data': { 'writingresult': JSON.stringify({ "success": false, "id": id, "detail": "failure while writting" }) } };
-                        obso.send(message);
+                        obso.sendMsg('writingresult', JSON.stringify({ "success": false, "id": id, "detail": "failure while writing" }));
                         showMessage("FAILED TO SAVE :(", 500)
                         writing = false;
                         resolve()
-                    }
-                    );
+                    });
                 }
             }, { once: true });
         })
