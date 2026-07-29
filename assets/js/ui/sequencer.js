@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let col = i % 4;
         let n = 13 - col * 4 + row;
         let btn = document.createElement('div');
-        let options = { type: 'button', toggle: true}
+        let options = { type: 'button', toggle: true }
         let btnid = 'button' + String(n);
         btn.setAttribute('id', btnid);
         btn.setAttribute('data-obsokit', JSON.stringify(options));
@@ -20,49 +20,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let matrix = [];
-window.addEventListener('seqmatrix', function (m) {
-    updateMatrix(m.detail);
-});
 
-window.addEventListener('seqstep', (e) => {
-    updateStep(e.detail);
-});
 
-async function updateStep(step) {
-    let current = document.querySelectorAll('.current');
-    current.forEach((c) => {
+window.addEventListener('obsokitready', function (objobsokit) {
+    let obso = objobsokit.detail;
+    let matrix = [];
+    obso.listen('seqmatrix', function (m) {
+        updateMatrix(m);
+    });
 
-        if (current) {
-            c.classList.remove('current');
-        }
-    })
-    document.querySelector('#button' + String(step + 1)).classList.add('current');
+    obso.listen('seqstep', (e) => {
+        updateStep(e);
+    });
 
-    for (let i = 0; i < 4; i++) {
-        if (matrix[step][i]) {
-            document.querySelector('#instrulight-' + String(i + 1)).classList.add('current');
-        }
-    }
-}
-
-async function updateMatrix(newmat) {
-    if (JSON.stringify(Array.from(matrix)) != JSON.stringify(Array.from(newmat))) {
-        matrix = newmat;
-        matrix.forEach((m, step) => {
-            let button = document.getElementById('button' + String(step + 1));
-            if (button) {
-                m.forEach((instru, i) => {
-                    let subbutton = button.querySelector('.sub-button.instrument-' + String(i));
-                    if (subbutton) {
-                        if (m[i] == 1) {
-                            subbutton.classList.add('activated');
-                        } else {
-                            subbutton.classList.remove('activated');
-                        }
-                    }
-                })
+    async function updateStep(step) {
+        let current = document.querySelectorAll('.current');
+        current.forEach((c) => {
+            if (current) {
+                c.classList.remove('current');
             }
-        });
+        })
+        document.querySelector('#button' + String(step + 1)).classList.add('current');
+        for (let i = 0; i < 4; i++) {
+            if (matrix[step][i]) {
+                document.querySelector('#instrulight-' + String(i + 1)).classList.add('current');
+            }
+        }
     }
-}
+
+    async function updateMatrix(newmat) {
+        if (JSON.stringify(Array.from(matrix)) != JSON.stringify(Array.from(newmat))) {
+            matrix = newmat;
+            matrix.forEach((m, step) => {
+                let button = document.getElementById('button' + String(step + 1));
+                if (button) {
+                    m.forEach((instru, i) => {
+                        let subbutton = button.querySelector('.sub-button.instrument-' + String(i));
+                        if (subbutton) {
+                            if (m[i] == 1) {
+                                subbutton.classList.add('activated');
+                            } else {
+                                subbutton.classList.remove('activated');
+                            }
+                        }
+                    })
+                }
+            });
+        }
+    }
+})

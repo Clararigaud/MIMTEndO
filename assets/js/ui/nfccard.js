@@ -4,8 +4,8 @@ window.addEventListener('obsokitready', function (objobsokit) {
     let id = null;
     let ti;
     const localNFCAddress = obso.name + "/" + obso.nfc.id + "/data";
-    window.addEventListener(localNFCAddress, (e) => {
-        let msg = e.detail;
+    obso.listen(localNFCAddress, (e) => {
+        let msg = e;
         if (msg[0].hasOwnProperty("id")) { // already recorded
             id = msg[0].id;
             if (obso.ready && !writing) {
@@ -30,9 +30,8 @@ window.addEventListener('obsokitready', function (objobsokit) {
             }
             ti = setTimeout(() => controller.abort(), timeout);
 
-            window.addEventListener(localNFCAddress, (e) => {
-                let msg = e.detail;
-                let event = e.detail;
+            obso.listen(localNFCAddress, (e) => {
+                let msg = e;
                 clearTimeout(ti)
                 if (msg[0].hasOwnProperty("id")) { // already recorded
                     id = msg[0].id;
@@ -56,7 +55,7 @@ window.addEventListener('obsokitready', function (objobsokit) {
             }, { once: true });
         })
     }
-    window.addEventListener('writecard', (e) => {
-        writeSetup(e.detail, { timeout: 5000 })
+    obso.listen('writecard', (e) => {
+        writeSetup(e, { timeout: 5000 })
     })
 })

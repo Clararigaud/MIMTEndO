@@ -33,12 +33,11 @@ function getPos(a, r, offset) {
     return [Math.cos(arad) * r + offset[0], Math.sin(arad) * r + offset[1]];
 }
 
-function pickLed(counter){
+function pickLed(counter) {
     var rem = document.querySelector(".steplight.active")
-    if(rem){
+    if (rem) {
         rem.classList.remove("active");
     }
-    // counter = counter % 4 + 1;
-    document.querySelector("#steplight-" + String(counter+1)).classList.add("active");
-    // console.log(counter);
+    let steplight = document.querySelector("#steplight-" + String(counter + 1));
+    steplight.classList.add("active");
 }

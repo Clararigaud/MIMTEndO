@@ -9,9 +9,6 @@ function getConfig() {
 
 function writeConfig(id, config) {
     const oldConfig = getConfig();
-    if (oldConfig.hasOwnProperty(id)) {
-        console.log("erasing previous")
-    }
     oldConfig[id] = config;
     const fs = require('fs')
     fs.writeFileSync(__dirname + '/data/states.json', JSON.stringify(oldConfig));
@@ -30,7 +27,7 @@ obsokit.app.get('/machinesetup/:id', function (req, res) {
 
 obsokit.app.get('/machineinstruments/:setups', function (req, res) {
     const fs = require('fs')
-    let config = JSON.parse(fs.readFileSync(__dirname + '/data/setups/'+req.params.setups+'.json'))
+    let config = JSON.parse(fs.readFileSync(__dirname + '/data/setups/' + req.params.setups + '.json'))
     if (config) {
         res.send(config);
     } else {

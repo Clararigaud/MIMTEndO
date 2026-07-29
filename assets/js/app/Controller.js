@@ -103,7 +103,7 @@ export default class Controller {
         });
 
         window.addEventListener("ping", (event) => {
-            this.sendState();
+            this.sendSetup();
         })
 
         // sequencer matrix event listeners
@@ -210,9 +210,8 @@ export default class Controller {
         this.isLoading = true;
         this.getSetup(id).then(res => {
             if (res) {
-
                 this.machine.updateSetup(res);
-                this.sendState();
+                this.sendSetup();
             } else {
                 console.log("failed to load setup")
             }
@@ -261,6 +260,13 @@ export default class Controller {
 
     sendState() {
         let state = this.getState();
+        this.send('state', state);
+        this.sendSequencerMatrix();
+    };
+
+    sendSetup() {
+        let state = this.getState();
+        this.send('setup', state);
         this.send('state', state);
         this.sendSequencerMatrix();
     };

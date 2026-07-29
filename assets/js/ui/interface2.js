@@ -1,19 +1,17 @@
 window.addEventListener('obsokitready', function (e) {
     var selected = 0;
     var selector;
-    var obso = null;
-    obso = e.detail;
+    var obso = e.detail;
     obso.sendMsg("ping")
     selector = obso.find("selector");
 
-    window.addEventListener('state', function (e) { // first get current state on load 
-        var state = e.detail.machine;
+    obso.listen('state', function (e) { // first get current state on load 
+        var state = e.machine;
         updateInstru(state);
-
     }, { once: true });
 
-    window.addEventListener('state', function (e) { // update selected interface only if selected instrument changed 
-        var state = e.detail.machine;
+    obso.listen('state', function (e) { // update selected interface only if selected instrument changed 
+        var state = e.machine;
         var selectorvalue = parseInt(selector.getValue().split("b-")[1]);
         if (selected != selectorvalue) {
             selected = selectorvalue;
@@ -24,10 +22,10 @@ window.addEventListener('obsokitready', function (e) {
     function updateSlider(instru, n) {
         if (instru.controls.length > n) {
             var control = instru.controls[n]
-            window.obsokit.obsobrowsercli.find("slider" + String(n + 1)).updateIfChanged(instru.effects[control[0]].slidervalue[control[1]])
+            obso.find("slider" + String(n + 1)).updateIfChanged(instru.effects[control[0]].slidervalue[control[1]])
         }
         else {
-            window.obsokit.obsobrowsercli.find("slider" + String(n + 1)).updateIfChanged(0)
+            obso.find("slider" + String(n + 1)).updateIfChanged(0)
         }
     }
 
@@ -38,6 +36,7 @@ window.addEventListener('obsokitready', function (e) {
         updateSlider(currentinstru, 1);
         updateSlider(currentinstru, 2);
         updateSlider(currentinstru, 3);
-        document.getElementById('container').setAttribute('value', String(selected));
+
+        obso.container.setAttribute('value', String(selected));
     }
 });
